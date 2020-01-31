@@ -2,11 +2,25 @@
 
 module.exports = exports = {};
 
-exports.readFile = (file, cb) => {
-  if( file.match(/bad/i) ) {
-    cb('Invalid File');
+exports.readFile = async (file, callback) => {
+  try {
+    if (file.match(/bad/i)) {
+      callback('Invalid File');
+    }
+    else {
+      callback(undefined, Buffer.from('File Contents'));
+    }
   }
-  else {
-    cb(undefined, new Buffer('File Contents'));
+  catch (error) {
+    { throw error; }
   }
+
+  exports.writeFile = async (data, callback) => {
+    if (!data) {
+      callback('No data');
+    }
+    else {
+      callback(undefined, JSON.stringify(data));
+    }
+  };
 };
