@@ -1,0 +1,15 @@
+{
+  "firstName": "Lindsay",
+  "lastName": "Peltier",
+  "hair": {
+    "type": "short",
+    "color": "blonde"
+  },
+  "favoriteFoods": [
+    "pizza",
+    "cupcakes",
+    "children"
+  ],
+  "married": true,
+  "kids": 3
+}

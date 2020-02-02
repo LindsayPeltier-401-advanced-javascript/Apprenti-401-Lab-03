@@ -25,14 +25,17 @@ class Validator {
 
       let field = schema.fields[fieldName];
 
+      // Am I required and set?
       let required = field.required
         ? this.isTruthy(data[fieldName])
         : true;
 
+      // Am I the right type (if we even care)
       let type = field.type
         ? this.isCorrectType(data[fieldName], field)
         : true;
 
+      // If anything is false ...
       if (!(required && type)) {
         valid = false;
       }
